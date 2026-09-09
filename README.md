@@ -1,6 +1,16 @@
 # Hotel Revenue& Booking Intelligence
 End-to-end hospitality analytics project using Python, MySQL, SQL and Tableau to analyze 119,390 hotel bookings, revenue performance and cancellation drivers.
 
+## Dashboard Preview
+
+### Executive Performance Overview
+
+![Executive Performance Overview](images/executive-overview.png)
+
+### Booking & Cancellation Drivers
+
+![Booking and Cancellation Drivers](images/booking-cancellation-drivers.png)
+
 ## Project Overview
 
 Hotel Revenue & Booking Intelligence is a hospitality analytics project built from 119,390 hotel booking records covering 2015–2017.
