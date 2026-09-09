@@ -91,7 +91,7 @@ The project was designed to answer questions such as:
 - Cancellation behavior varies significantly across market segments and distribution channels.
 - Greater numbers of special requests are associated with substantially lower observed cancellation rates in the dataset.
 
-- ## Project Workflow
+## Project Workflow
 
 1. **Data Preparation** — Cleaned the hotel booking dataset with Python, removed unnecessary whitespace, and generated a unique booking ID.
 2. **Data Validation** — Used SQL to validate booking records, hotel categories, arrival years, ADR values, cancellation indicators, market segments, and distribution channels.
@@ -99,7 +99,7 @@ The project was designed to answer questions such as:
 4. **Business Intelligence** — Built two interactive Tableau dashboards for executive performance monitoring and booking/cancellation driver analysis.
 5. **Communication** — Converted analytical results into decision-ready hospitality KPIs and visual insights.
 
-6. ## Repository Structure
+## Repository Structure
 
 ```text
 hotel-revenue-booking-intelligence/
@@ -108,10 +108,8 @@ hotel-revenue-booking-intelligence/
 ├── sql/           # SQL validation and analytical queries
 ├── tableau/       # Tableau Public dashboard link
 └── README.md      # Project documentation
+```
 
-And finally:
-
-```markdown
 ## Key Business Takeaways
 
 - The dataset contains **119,390 hotel bookings**.
@@ -120,7 +118,7 @@ And finally:
 - Average ADR is **102.4**, while average length of stay is **3.39 nights**.
 - Online TA generates the largest estimated revenue among market segments.
 - Cancellation behavior varies substantially across market segments and distribution channels.
-- Bookings with more special requests show lower observed cancellation rates, indicating a useful relationship for further customer-behavior analysis.
+- Bookings with more special requests show lower observed cancellation rates in the dataset.
 
 ## Tools Used
 
