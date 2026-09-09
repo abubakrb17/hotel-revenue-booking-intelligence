@@ -11,6 +11,10 @@ End-to-end hospitality analytics project using Python, MySQL, SQL and Tableau to
 
 ![Booking and Cancellation Drivers](images/booking-cancellation-drivers.png)
 
+## Live Dashboard
+
+[View the interactive Tableau dashboard](https://public.tableau.com/app/profile/aboubacar.bah3896/viz/HotelRevenueBookingIntelligence/Dashboard1)
+
 ## Project Overview
 
 Hotel Revenue & Booking Intelligence is a hospitality analytics project built from 119,390 hotel booking records covering 2015–2017.
@@ -86,3 +90,43 @@ The project was designed to answer questions such as:
 - Online TA is the largest revenue-generating market segment in the analysis.
 - Cancellation behavior varies significantly across market segments and distribution channels.
 - Greater numbers of special requests are associated with substantially lower observed cancellation rates in the dataset.
+
+- ## Project Workflow
+
+1. **Data Preparation** — Cleaned the hotel booking dataset with Python, removed unnecessary whitespace, and generated a unique booking ID.
+2. **Data Validation** — Used SQL to validate booking records, hotel categories, arrival years, ADR values, cancellation indicators, market segments, and distribution channels.
+3. **Business Analysis** — Analyzed booking performance, cancellation drivers, customer behavior, lead time, special requests, and revenue performance using MySQL.
+4. **Business Intelligence** — Built two interactive Tableau dashboards for executive performance monitoring and booking/cancellation driver analysis.
+5. **Communication** — Converted analytical results into decision-ready hospitality KPIs and visual insights.
+
+6. ## Repository Structure
+
+```text
+hotel-revenue-booking-intelligence/
+├── images/        # Tableau dashboard screenshots
+├── python/        # Data cleaning script
+├── sql/           # SQL validation and analytical queries
+├── tableau/       # Tableau Public dashboard link
+└── README.md      # Project documentation
+
+And finally:
+
+```markdown
+## Key Business Takeaways
+
+- The dataset contains **119,390 hotel bookings**.
+- The overall cancellation rate is **37.04%**, highlighting cancellation management as a major business priority.
+- Estimated room revenue from successful stays is approximately **26.00M**.
+- Average ADR is **102.4**, while average length of stay is **3.39 nights**.
+- Online TA generates the largest estimated revenue among market segments.
+- Cancellation behavior varies substantially across market segments and distribution channels.
+- Bookings with more special requests show lower observed cancellation rates, indicating a useful relationship for further customer-behavior analysis.
+
+## Tools Used
+
+**Python · SQL · MySQL · Tableau · GitHub**
+
+## Author
+
+**Aboubacar Bah**  
+Junior BI & Data Analyst | Hospitality & Customer Analytics
