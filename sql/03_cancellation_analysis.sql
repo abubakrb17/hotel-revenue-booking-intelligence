@@ -164,3 +164,49 @@ WHERE country IS NOT NULL
 GROUP BY country
 ORDER BY total_bookings DESC
 LIMIT 10;
+
+
+-- January–August cancellation comparison: 2016 vs 2017
+
+SELECT
+    hotel,
+    arrival_date_year,
+    COUNT(*) AS total_bookings,
+    SUM(is_canceled) AS cancelled_bookings,
+    ROUND(
+        100.0 * SUM(is_canceled) / COUNT(*),
+        2
+    ) AS cancellation_rate_pct
+FROM hotel_bookings_clean
+WHERE arrival_date_year IN (2016, 2017)
+  AND arrival_date_month IN (
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August'
+  )
+GROUP BY hotel, arrival_date_year
+ORDER BY hotel, arrival_date_year;
+
+SELECT
+    hotel,
+    arrival_date_year,
+    market_segment,
+    COUNT(*) AS total_bookings,
+    SUM(is_canceled) AS cancelled_bookings,
+    ROUND(
+        100.0 * SUM(is_canceled) / COUNT(*),
+        2
+    ) AS cancellation_rate_pct
+FROM hotel_bookings_clean
+WHERE arrival_date_year IN (2016, 2017)
+  AND arrival_date_month IN (
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August'
+  )
+GROUP BY
+    hotel,
+    arrival_date_year,
+    market_segment
+ORDER BY
+    hotel,
+    market_segment,
+    arrival_date_year;
