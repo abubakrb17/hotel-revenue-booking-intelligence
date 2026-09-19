@@ -40,3 +40,20 @@ FROM hotel_bookings_clean
 WHERE is_canceled = 0
   AND adr = 0
 GROUP BY hotel;
+
+SELECT
+    arrival_date_year,
+    arrival_date_month,
+    COUNT(*) AS bookings
+FROM hotel_bookings_clean
+GROUP BY
+    arrival_date_year,
+    arrival_date_month
+ORDER BY
+    arrival_date_year,
+    FIELD(
+        arrival_date_month,
+        'January', 'February', 'March', 'April',
+        'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'
+    );
