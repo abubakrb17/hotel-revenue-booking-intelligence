@@ -32,8 +32,25 @@ FROM hotel_bookings_clean;
 SELECT
     hotel,
     COUNT(*) - SUM(is_canceled) AS successful_bookings,
-    SUM(stays_in_weekend_nights + stays_in_week_nights) AS total_room_nights,
-    ROUND(AVG(CASE WHEN is_canceled = 0 AND adr > 0 THEN adr END), 2) AS average_adr,
+
+    SUM(
+        CASE
+            WHEN is_canceled = 0
+            THEN stays_in_weekend_nights + stays_in_week_nights
+            ELSE 0
+        END
+    ) AS non_cancelled_booking_nights,
+
+    SUM(
+        CASE
+            WHEN is_canceled = 0
+                 AND adr > 0
+                 AND (stays_in_weekend_nights + stays_in_week_nights) > 0
+            THEN stays_in_weekend_nights + stays_in_week_nights
+            ELSE 0
+        END
+    ) AS positive_rate_booking_nights,
+
     ROUND(
         SUM(
             CASE
@@ -45,7 +62,34 @@ SELECT
             END
         ),
         2
-    ) AS estimated_room_revenue
+    ) AS estimated_room_revenue,
+
+    ROUND(
+        SUM(
+            CASE
+                WHEN is_canceled = 0
+                     AND adr > 0
+                     AND (stays_in_weekend_nights + stays_in_week_nights) > 0
+                THEN adr * (stays_in_weekend_nights + stays_in_week_nights)
+                ELSE 0
+            END
+        )
+        /
+        NULLIF(
+            SUM(
+                CASE
+                    WHEN is_canceled = 0
+                         AND adr > 0
+                         AND (stays_in_weekend_nights + stays_in_week_nights) > 0
+                    THEN stays_in_weekend_nights + stays_in_week_nights
+                    ELSE 0
+                END
+            ),
+            0
+        ),
+        2
+    ) AS positive_rate_weighted_adr
+
 FROM hotel_bookings_clean
 GROUP BY hotel
 ORDER BY estimated_room_revenue DESC;
