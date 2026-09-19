@@ -204,3 +204,41 @@ SELECT
 FROM hotel_bookings_clean
 GROUP BY assigned_room_type
 ORDER BY estimated_room_revenue DESC;
+
+-- 7. January–August revenue and qualifying nights: 2016 vs 2017
+
+SELECT
+    hotel,
+    arrival_date_year,
+    
+    SUM(
+    CASE
+        WHEN is_canceled = 0
+             AND adr > 0
+             AND (stays_in_weekend_nights + stays_in_week_nights) > 0
+        THEN stays_in_weekend_nights + stays_in_week_nights
+        ELSE 0
+    END
+) AS positive_rate_booking_nights,
+
+    ROUND(
+        SUM(
+            CASE
+                WHEN is_canceled = 0
+                     AND adr > 0
+                     AND (stays_in_weekend_nights + stays_in_week_nights) > 0
+                THEN adr * (stays_in_weekend_nights + stays_in_week_nights)
+                ELSE 0
+            END
+        ),
+        2
+    ) AS estimated_room_revenue
+
+FROM hotel_bookings_clean
+WHERE arrival_date_year IN (2016, 2017)
+  AND arrival_date_month IN (
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August'
+  )
+GROUP BY hotel, arrival_date_year
+ORDER BY hotel, arrival_date_year;
