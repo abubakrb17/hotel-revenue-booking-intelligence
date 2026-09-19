@@ -57,3 +57,28 @@ ORDER BY
         'May', 'June', 'July', 'August',
         'September', 'October', 'November', 'December'
     );
+SELECT
+    arrival_date_year,
+    MIN(
+        STR_TO_DATE(
+            CONCAT(
+                arrival_date_year, '-',
+                arrival_date_month, '-',
+                arrival_date_day_of_month
+            ),
+            '%Y-%M-%d'
+        )
+    ) AS first_arrival,
+    MAX(
+        STR_TO_DATE(
+            CONCAT(
+                arrival_date_year, '-',
+                arrival_date_month, '-',
+                arrival_date_day_of_month
+            ),
+            '%Y-%M-%d'
+        )
+    ) AS last_arrival
+FROM hotel_bookings_clean
+GROUP BY arrival_date_year
+ORDER BY arrival_date_year;
