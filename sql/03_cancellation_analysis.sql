@@ -210,3 +210,28 @@ ORDER BY
     hotel,
     market_segment,
     arrival_date_year;
+
+SELECT
+    hotel,
+    CASE
+        WHEN lead_time BETWEEN 0 AND 7 THEN '01: 0–7 days'
+        WHEN lead_time BETWEEN 8 AND 30 THEN '02: 8–30 days'
+        WHEN lead_time BETWEEN 31 AND 90 THEN '03: 31–90 days'
+        WHEN lead_time > 90 THEN '04: Over 90 days'
+        ELSE '05: Missing or invalid'
+    END AS lead_time_group,
+    COUNT(*) AS total_bookings,
+    SUM(is_canceled) AS cancelled_bookings,
+    ROUND(
+        100.0 * SUM(is_canceled) / COUNT(*),
+        2
+    ) AS cancellation_rate_pct
+FROM hotel_bookings_clean
+WHERE market_segment = 'Online TA'
+  AND arrival_date_year = 2017
+  AND arrival_date_month IN (
+      'January', 'February', 'March', 'April',
+      'May', 'June', 'July', 'August'
+  )
+GROUP BY hotel, lead_time_group
+ORDER BY hotel, lead_time_group;
