@@ -1,4 +1,19 @@
 # Hotel Revenue& Booking Intelligence
+
+## Sample Revenue Performance Audit
+
+A historical hotel-booking analysis covering estimated room revenue,
+positive-rate weighted ADR, cancellations, and proposed management actions.
+
+The sample report compares January–August 2017 with the same months in 2016.
+Its data-quality review covers the full dataset.
+
+- [Read the three-page sample audit](reports/hotel-revenue-performance-audit-sample.pdf)
+- [View the eight portfolio images](images/audit/)
+
+This is a portfolio demonstration, not a paid client engagement.
+Revenue is estimated; the report explains its assumptions and limitations.
+
 End-to-end hospitality analytics project using Python, MySQL, SQL and Tableau to analyze 119,390 hotel bookings, revenue performance and cancellation drivers.
 
 ## Dashboard Preview
