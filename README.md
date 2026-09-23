@@ -18,6 +18,9 @@ This is a historical portfolio demonstration, not a paid client engagement. Reco
 
 ## Sample Audit and Portfolio
 
+## Sample Audit and Portfolio
+
+- [Explore the live Tableau dashboard](https://public.tableau.com/app/profile/aboubacar.bah3896/viz/HotelRevenueBookingIntelligence/Dashboard1)
 - [Read the three-page sample audit](reports/Hotel%20Revenue%20Performance%20Audit.pdf)
 - [View the portfolio images](images/audit/)
 
