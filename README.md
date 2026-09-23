@@ -8,7 +8,7 @@ positive-rate weighted ADR, cancellations, and proposed management actions.
 The sample report compares January–August 2017 with the same months in 2016.
 Its data-quality review covers the full dataset.
 
-- [Read the three-page sample audit](reports/hotel-revenue-performance-audit-sample.pdf)
+- [Read the three-page sample audit]([reports/hotel-revenue-performance-audit-sample.pdf](https://github.com/abubakrb17/hotel-revenue-booking-intelligence/blob/main/reports/Hotel%20Revenue%20Performance%20Audit.pdf))
 - [View the eight portfolio images](images/audit/)
 
 This is a portfolio demonstration, not a paid client engagement.
